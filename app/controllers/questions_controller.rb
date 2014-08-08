@@ -16,11 +16,23 @@ class QuestionsController < ApplicationController
   end
 
   def create
-  	@question = Question.new(question_params)
+  	@question = Question.create(question_params)
+    render :show
+  end
+
+  def upvote
+    @question = Question.find(params[:id])
+    @question.liked_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @question = Question.find(params[:id])
+    @question.downvote_from current_user
+    redirect_to :back
   end
 
   private
-
 
   def question_params
   	params.require(:question).permit(:title, :body)

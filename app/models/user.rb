@@ -8,5 +8,5 @@ class User < ActiveRecord::Base
   has_many :answers
   has_many :comments
 
-
+  acts_as_voter
 end
