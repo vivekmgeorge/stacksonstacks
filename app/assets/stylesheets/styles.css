@@ -1,0 +1,14 @@
+.navbar navbar-default {
+  color: white;
+  background-color: black;
+  position: relative;
+}
+
+.navbar-form navbar-right {
+  right: 5px;
+}
+
+.container{
+  width:980px;
+  text-align: center;
+}
