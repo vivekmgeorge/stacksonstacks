@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+	get 'users/:id/profile', to: 'users#show', as: 'profile'
+
   devise_for :users
 
   get 'pages/home'
@@ -8,6 +11,5 @@ Rails.application.routes.draw do
 
   resources :questions
 
-  get 'users/:id/show', to: 'users#show'
 
 end
