@@ -1,4 +1,12 @@
 <h1><%= @question.title %></h1><br>
-<%= @question.body %><br><br>
+
+<strong>Body: </strong><%= @question.body %><br><br>
+
+
+
+<h2>ANSWERS</h2>
+<% @question.answers.each do |answer| %>
+	<div><%= answer.body %></div>
+<% end %>
 
 <%= link_to 'Back Fucker', question_path, class: 'btn btn-primary text-center' %>
