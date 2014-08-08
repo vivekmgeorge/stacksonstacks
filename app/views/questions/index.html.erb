@@ -3,3 +3,7 @@
 <% @questions.each do |question| %>
   <%= link_to question.title, question %>
 <% end %>
+
+<% if current_user %>
+  <%= link_to 'Create New Question', new_question_path, class:"btn btn-warning" %>
+<% end %>
