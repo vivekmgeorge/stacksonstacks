@@ -1,0 +1,19 @@
+<h1>Editing <%= @question.title %></h1>
+
+<%= form_for @question do |f| %>
+	<p>
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+	</p>
+
+	<p>
+		<%= f.label :body %>
+		<%= f.text_area :body, cols: 30, rows: 15 %>
+	</p>
+	
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>
+
+<%= link_to '<< back', :back %>
