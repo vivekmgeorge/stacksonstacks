@@ -1572,3 +1572,134 @@ Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-08 10:40:17 
 
 
 Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-08 10:40:17 -0400
+  [1m[36m (17.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.7ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateQuestions (20140808003151)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (35.8ms)[0m  [1mCREATE TABLE "questions" ("id" serial primary key, "title" character varying(255), "body" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (15.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140808003151"]]
+  [1m[36m (15.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateAnswers (20140808003155)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "answers" ("id" serial primary key, "body" character varying(255), "question_id" integer, "commentable_id" integer, "commentable_type" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140808003155"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20140808003425)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "body" character varying(255), "commentable_id" integer, "commentable_type" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140808003425"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mQuestion Load (0.5ms)[0m  [1mSELECT "questions".* FROM "questions"[0m
+  [1m[35mAnswer Load (0.6ms)[0m  SELECT "answers".* FROM "answers"
+  [1m[36mAnswer Load (0.7ms)[0m  [1mSELECT  "answers".* FROM "answers"   ORDER BY "answers"."id" ASC LIMIT 1[0m
+  [1m[35mAnswer Load (0.8ms)[0m  SELECT  "answers".* FROM "answers"   ORDER BY "answers"."id" ASC LIMIT 1
+  [1m[36mAnswer Load (0.7ms)[0m  [1mSELECT  "answers".* FROM "answers"   ORDER BY "answers"."id" ASC LIMIT 1[0m
+  [1m[35mAnswer Load (0.7ms)[0m  SELECT  "answers".* FROM "answers"   ORDER BY "answers"."id" ASC LIMIT 1
+  [1m[36mComment Load (0.8ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  [1m[35mAnswer Load (0.7ms)[0m  SELECT  "answers".* FROM "answers"   ORDER BY "answers"."id" ASC LIMIT 1
+  [1m[36mAnswer Load (0.7ms)[0m  [1mSELECT  "answers".* FROM "answers"   ORDER BY "answers"."id" ASC LIMIT 1[0m
+  [1m[35mQuestion Load (0.3ms)[0m  SELECT  "questions".* FROM "questions"   ORDER BY "questions"."id" ASC LIMIT 1
+  [1m[36mQuestion Load (0.8ms)[0m  [1mSELECT  "questions".* FROM "questions"   ORDER BY "questions"."id" ASC LIMIT 1[0m
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateQuestions (20140808003151)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "questions" ("id" serial primary key, "title" character varying(255), "body" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140808003151"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateAnswers (20140808003155)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "answers" ("id" serial primary key, "body" character varying(255), "question_id" integer, "commentable_id" integer, "commentable_type" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140808003155"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20140808003425)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "body" character varying(255), "commentable_id" integer, "commentable_type" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140808003425"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mQuestion Load (0.7ms)[0m  [1mSELECT  "questions".* FROM "questions"   ORDER BY "questions"."id" ASC LIMIT 1[0m
+  [1m[35mQuestion Load (0.7ms)[0m  SELECT  "questions".* FROM "questions"   ORDER BY "questions"."id" ASC LIMIT 1
+  [1m[36mQuestion Load (0.8ms)[0m  [1mSELECT  "questions".* FROM "questions"   ORDER BY "questions"."id" ASC LIMIT 1[0m
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateQuestions (20140808003151)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "questions" ("id" serial primary key, "title" character varying(255), "body" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140808003151"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateAnswers (20140808003155)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.0ms)[0m  [1mCREATE TABLE "answers" ("id" serial primary key, "body" character varying(255), "question_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140808003155"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20140808003425)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (3.2ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "body" character varying(255), "commentable_id" integer, "commentable_type" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140808003425"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mAnswer Load (0.7ms)[0m  [1mSELECT  "answers".* FROM "answers"   ORDER BY "answers"."id" ASC LIMIT 1[0m
+  [1m[35mAnswer Load (0.7ms)[0m  SELECT  "answers".* FROM "answers"   ORDER BY "answers"."id" ASC LIMIT 1
+  [1m[36mAnswer Load (0.5ms)[0m  [1mSELECT  "answers".* FROM "answers"   ORDER BY "answers"."id" ASC LIMIT 1[0m
+  [1m[35mQuestion Load (0.5ms)[0m  SELECT  "questions".* FROM "questions"   ORDER BY "questions"."id" ASC LIMIT 1
+  [1m[36mQuestion Load (0.7ms)[0m  [1mSELECT  "questions".* FROM "questions"   ORDER BY "questions"."id" ASC LIMIT 1[0m
+  [1m[35mQuestion Load (0.6ms)[0m  SELECT  "questions".* FROM "questions"   ORDER BY "questions"."id" ASC LIMIT 1
+  [1m[36mAnswer Load (0.8ms)[0m  [1mSELECT  "answers".* FROM "answers"   ORDER BY "answers"."id" ASC LIMIT 1[0m
+  [1m[35mQuestion Load (0.9ms)[0m  SELECT  "questions".* FROM "questions"   ORDER BY "questions"."id" ASC LIMIT 1
+  [1m[36mQuestion Load (0.8ms)[0m  [1mSELECT  "questions".* FROM "questions"   ORDER BY "questions"."id" ASC LIMIT 1[0m
+  [1m[35mAnswer Load (0.6ms)[0m  SELECT  "answers".* FROM "answers"   ORDER BY "answers"."id" ASC LIMIT 1
+  [1m[36mAnswer Load (0.6ms)[0m  [1mSELECT  "answers".* FROM "answers"   ORDER BY "answers"."id" ASC LIMIT 1[0m
+  [1m[35mComment Load (1.0ms)[0m  SELECT  "comments".* FROM "comments"   ORDER BY "comments"."id" ASC LIMIT 1
+  [1m[36mComment Load (0.6ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "stuff"], ["created_at", "2014-08-08 16:52:25.469544"], ["updated_at", "2014-08-08 16:52:25.469544"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mComment Load (0.9ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "questions" ("body", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "stuff"], ["created_at", "2014-08-08 16:54:31.267347"], ["title", "stuff"], ["updated_at", "2014-08-08 16:54:31.267347"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mQuestion Load (0.7ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "answers" ("body", "created_at", "question_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "stuff"], ["created_at", "2014-08-08 16:56:43.818605"], ["question_id", 1], ["updated_at", "2014-08-08 16:56:43.818605"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36mAnswer Load (0.3ms)[0m  [1mSELECT "answers".* FROM "answers"  WHERE "answers"."question_id" = $1[0m  [["question_id", 1]]
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 1], ["commentable_type", "Question"]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "question"], ["created_at", "2014-08-08 17:06:54.614907"], ["updated_at", "2014-08-08 17:06:54.614907"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[36mQuestion Load (0.6ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mQuestion Load (0.9ms)[0m  SELECT  "questions".* FROM "questions"   ORDER BY "questions"."id" ASC LIMIT 1
+  [1m[36mQuestion Load (0.9ms)[0m  [1mSELECT  "questions".* FROM "questions"   ORDER BY "questions"."id" ASC LIMIT 1[0m
+  [1m[35mComment Load (0.5ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 1], ["commentable_type", "Question"]]
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mComment Load (0.5ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "answers" ("created_at", "question_id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-08-08 17:15:14.257063"], ["question_id", 1], ["updated_at", "2014-08-08 17:15:14.257063"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mQuestion Load (0.9ms)[0m  SELECT  "questions".* FROM "questions"   ORDER BY "questions"."id" ASC LIMIT 1
+  [1m[36mQuestion Load (0.6ms)[0m  [1mSELECT  "questions".* FROM "questions"   ORDER BY "questions"."id" ASC LIMIT 1[0m
+  [1m[35mAnswer Load (0.7ms)[0m  SELECT  "answers".* FROM "answers"   ORDER BY "answers"."id" ASC LIMIT 1
+  [1m[36mQuestion Load (0.4ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mComment Load (0.7ms)[0m  SELECT  "comments".* FROM "comments"   ORDER BY "comments"."id" ASC LIMIT 1
+  [1m[36mQuestion Load (0.7ms)[0m  [1mSELECT  "questions".* FROM "questions"   ORDER BY "questions"."id" ASC LIMIT 1[0m
+  [1m[35mQuestion Load (0.8ms)[0m  SELECT  "questions".* FROM "questions"   ORDER BY "questions"."id" ASC LIMIT 1
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 1], ["commentable_type", "Question"]]
+  [1m[35mQuestion Load (0.7ms)[0m  SELECT  "questions".* FROM "questions"   ORDER BY "questions"."id" ASC LIMIT 1
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  ORDER BY "comments"."id" ASC LIMIT 1[0m  [["commentable_id", 1], ["commentable_type", "Question"]]
+  [1m[35mQuestion Load (0.7ms)[0m  SELECT  "questions".* FROM "questions"   ORDER BY "questions"."id" ASC LIMIT 1
+  [1m[36mComment Load (0.6ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 1], ["commentable_type", "Question"]]
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mQuestion Load (0.3ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mComment Load (0.6ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  ORDER BY "comments"."id" ASC LIMIT 1[0m  [["commentable_id", 1], ["commentable_type", "Question"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "comments" SET "commentable_id" = $1, "commentable_type" = $2, "updated_at" = $3 WHERE "comments"."id" = 1[0m  [["commentable_id", 1], ["commentable_type", "Question"], ["updated_at", "2014-08-08 17:34:39.215614"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mQuestion Load (0.6ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mComment Load (0.6ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 1], ["commentable_type", "Question"]]
+  [1m[35mQuestion Load (0.5ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
