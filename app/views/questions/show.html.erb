@@ -17,9 +17,19 @@
 
 <strong>Body: </strong><%= @question.body %><br><br>
 <%= link_to 'delete question', question_path(@question), confirm: 'You sure about that, bud?', method: :delete  %>
+
+
+<h2>COMMENTS ON QUESTION</h2>
+
+<% @comments.each do |comment| %>
+	<strong>Body: </strong><%= comment.body %> <br> <br>
+<% end %>
+
+
 <h2>ANSWERS</h2>
 <% @question.answers.each do |answer| %>
 	<div><%= answer.body %></div>
 <% end %>
+
 
 <%= link_to 'All Questions', root_path %>
