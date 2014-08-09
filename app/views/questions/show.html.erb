@@ -1,4 +1,18 @@
-<h1><%= @question.title %></h1><br>
+<h1><%= @question.title %></h1><br> 
+
+<h2>Upvotes/Downvotes</h2>
+
+<p>
+	<%= @question.votes_for.count %><%= link_to 'Upvote', like_question_path(@question), method: :put, class: 'btn btn-success btn-xs' %>
+</p>
+
+
+<p>
+	<%= @question.get_dislikes.count %>
+	<%= link_to 'Downvote', dislike_question_path(@question), method: :put, class: 'btn btn-danger btn-xs' %>
+
+</p>
+
 
 <strong>Body: </strong><%= @question.body %><br><br>
 
@@ -9,4 +23,4 @@
 	<div><%= answer.body %></div>
 <% end %>
 
-<%= link_to 'Back Fucker', question_path, class: 'btn btn-primary text-center' %>
+<%= link_to 'All Questions', root_path %>

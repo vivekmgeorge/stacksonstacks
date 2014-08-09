@@ -31,12 +31,14 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %><span class="caret"></span></a>
         <% else %>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">sign up/in <span class="caret"></span></a>
+
         <% end %>
           <ul class="dropdown-menu" role="menu">
             <% unless current_user %>
               <li><%= link_to 'sign in', new_user_session_path %></li>
               <li><%= link_to 'sign up', new_user_registration_path %></li>
             <% else %>
+              <li><%= link_to 'account settings', edit_user_registration_path %></li>
               <li><%= link_to 'log out', destroy_user_session_path, method: :delete %></li>
             <% end %>
           </ul>
