@@ -1,0 +1,8 @@
+<h1>Showing Comment</h1>
+
+<strong>Body: </strong><%= @comment.body %><br><br>
+<%= link_to 'delete comment', comment_path(@comment), confirm: 'You sure about that, bud?', method: :delete  %>
+
+<br> <br>
+
+<%= link_to 'All Comments', comments_path %>
