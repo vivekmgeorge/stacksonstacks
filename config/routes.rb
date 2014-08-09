@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 	get 'users/:id/show', to: 'users#show', as: 'show'
+  resources :comments
 
   devise_for :users
 
@@ -11,13 +12,13 @@ Rails.application.routes.draw do
   
   resources :answers
 
+
   resources :questions do
   	member do
       put 'like', to: 'questions#upvote'
       put 'dislike', to: 'questions#downvote'
-
   	end
+
+    resources :comments
   end
-
-
 end
