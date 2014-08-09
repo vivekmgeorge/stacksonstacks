@@ -5,6 +5,7 @@ class QuestionsController < ApplicationController
 
   def show
   	@question = Question.find(params[:id])
+    @comments = @question.comments
   end
 
   def new
@@ -20,16 +21,22 @@ class QuestionsController < ApplicationController
     render :show
   end
 
+  def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+    redirect_to root_path
+  end
+
   def upvote
     @question = Question.find(params[:id])
     @question.liked_by current_user
-    redirect_to :back
+    redirect_to question_path(@question)
   end
 
   def downvote
     @question = Question.find(params[:id])
     @question.downvote_from current_user
-    redirect_to :back
+    redirect_to question_path(@question)
   end
 
   private
