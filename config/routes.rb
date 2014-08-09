@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'pages/about'
 
   root 'questions#index'
+  
+  resources :answers
 
   resources :questions do
   	member do
