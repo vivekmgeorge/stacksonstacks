@@ -19357,3 +19357,52 @@ Started GET "/assets/bootstrap" for 127.0.0.1 at 2014-08-09 11:06:45 -0400
   [1m[36mQuestion Load (1.0ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 9]]
   [1m[35mComment Load (0.6ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 9], ["commentable_type", "Question"]]
 >>>>>>> 4fb28af3e28da8489fb7aba81657db7da854bca6
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-09 13:07:42 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (2.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by QuestionsController#index as HTML
+  [1m[35mQuestion Load (1.7ms)[0m  SELECT "questions".* FROM "questions"
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered questions/index.html.erb within layouts/application (50.2ms)
+  Rendered shared/_navbar.html.erb (1.7ms)
+Completed 200 OK in 278ms (Views: 233.2ms | ActiveRecord: 12.4ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-08-09 13:07:42 -0400
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-09 13:07:42 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-09 13:07:42 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-09 13:07:42 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-09 13:07:42 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-09 13:07:42 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-09 13:07:42 -0400
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-09 13:07:42 -0400
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2014-08-09 13:07:42 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-09 13:07:42 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-09 13:07:42 -0400
+
+
+Started GET "/assets/bootstrap-sprockets" for 127.0.0.1 at 2014-08-09 13:07:42 -0400
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2014-08-09 13:07:42 -0400
