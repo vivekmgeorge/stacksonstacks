@@ -1,7 +1,10 @@
-.navbar navbar-default {
-  color: white;
-  background-color: black;
+.navbar-test {
+  background-color: #4E4E4F;
   position: relative;
+}
+
+.navbar-font {
+	color: white;
 }
 
 .navbar-form navbar-right {
@@ -10,5 +13,9 @@
 
 .container{
   width:980px;
-  text-align: center;
+  text-align: left;
+}
+
+.active {
+	color: white;
 }
