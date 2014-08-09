@@ -3,6 +3,10 @@
 <h2>Upvotes/Downvotes</h2>
 
 <p>
+	<strong>Score: <%= @question.score %></strong>
+</p>
+
+<p>
 	<%= @question.votes_for.count %><%= link_to 'Upvote', like_question_path(@question), method: :put, class: 'btn btn-success btn-xs' %>
 </p>
 
