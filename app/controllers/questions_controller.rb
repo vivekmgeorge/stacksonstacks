@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
 
   def create
   	@question = Question.create(question_params)
-    render :show
+    redirect_to question_path(@question)
   end
 
   def destroy
