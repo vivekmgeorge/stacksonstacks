@@ -6,18 +6,13 @@
 	<%= @question.votes_for.count %><%= link_to 'Upvote', like_question_path(@question), method: :put, class: 'btn btn-success btn-xs' %>
 </p>
 
-
 <p>
 	<%= @question.get_dislikes.count %>
 	<%= link_to 'Downvote', dislike_question_path(@question), method: :put, class: 'btn btn-danger btn-xs' %>
-
 </p>
 
-
 <strong>Body: </strong><%= @question.body %><br><br>
-
-
-
+<%= link_to 'delete question', question_path(@question), confirm: 'You sure about that, bud?', method: :delete  %>
 <h2>ANSWERS</h2>
 <% @question.answers.each do |answer| %>
 	<div><%= answer.body %></div>
