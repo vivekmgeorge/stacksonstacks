@@ -20,6 +20,12 @@ class QuestionsController < ApplicationController
     render :show
   end
 
+  def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+    redirect_to root_path
+  end
+
   def upvote
     @question = Question.find(params[:id])
     @question.liked_by current_user
