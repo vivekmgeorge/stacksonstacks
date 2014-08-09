@@ -5,6 +5,6 @@ class Question < ActiveRecord::Base
   acts_as_votable
 
   def score
-  	self.votes_for.count - self.get_dislikes.count
+  	self.get_upvotes.count - self.get_downvotes.count
   end
 end
