@@ -1,0 +1,87 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* unvisited link */
+a:link {
+    color: #A6A4A4;
+}
+
+/* visited link */
+a:visited {
+    color: #A6A4A4;
+}
+
+/* mouse over link */
+a:hover {
+    color: #277BD6;
+}
+
+/* body text changes */
+body {
+	font-family: 'Pontano Sans', sans-serif !important;
+	padding-bottom: 25px;
+    text-align: left !important;
+    background-color: #E3E3E3;
+	}	
+
+/* the box design for asking and answering a question */
+#button {
+    background-color: #277BD6;
+    color: white;
+    font-family: 'Pontano Sans';
+    font-size: 17px;
+    cursor: pointer;
+    padding: 10px;
+    border:none;
+}
+
+/* div for show question section */
+div.question {
+    height: auto;
+    word-wrap: break-word;
+    padding: 10px;
+    padding-right: 50px;
+    padding-left: 50px;
+    color: black;
+    border: 1px;
+    border-style: solid;
+    border-color: #A3A3A3;
+    background-color: white;
+}
+
+/* div for show answer section */
+div.answer {
+    height: auto;
+    word-wrap: break-word;
+    padding: 5px;
+    padding-right: 50px;
+    padding-left: 50px;
+    border: 1px;
+    color: black;
+    border-style: solid;
+    border-color: #A3A3A3;
+    background-color: #F0F0F0;
+}
+
+/* not being used yet */
+div.nav {
+    width: 1000px;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid gray;
+    color: white;
+    background-color: #4E4E4F;
+}
+
+.vote {
+    padding: 0px !important;
+}
+
+div.ans_button {
+    float: right !important;
+}
+
+/* color for nav bar */
+div.container-fluid {
+    background-color: #4E4E4F;
+    }

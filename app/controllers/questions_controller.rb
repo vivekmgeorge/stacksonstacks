@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   def index
     @questions = Question.all
+    @question = Question.new
   end
 
   def show
@@ -17,7 +18,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-  	@question = Question.create(question_params)
+  	@question = current_user.questions.create(question_params)
     redirect_to question_path(@question)
   end
 
