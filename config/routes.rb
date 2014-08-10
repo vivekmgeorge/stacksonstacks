@@ -12,22 +12,20 @@ Rails.application.routes.draw do
   
 
   #resources :answers
-  # resources :answers do
-  #   member do
-  #     put 'like', to: 'questions#answers#upvote'
-  #     put 'dislike', to: 'questions#answers#downvote'
-  #   end
-  # end
-
-
+#  resources :answers do
+ 
   resources :questions do
-  	member do
+    member do
       put 'like', to: 'questions#upvote'
       put 'dislike', to: 'questions#downvote'
-  	end
-
-    resources :answers do 
-      resources :comments
     end
+    resources :answers do 
+      member do
+        put 'like', to: 'answers#upvote'
+        put 'dislike', to: 'answers#downvote'
+      end
+    end    
+    resources :answers 
+    resources :comments
   end
 end
