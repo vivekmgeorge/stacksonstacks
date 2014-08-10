@@ -1,11 +1,23 @@
 <h1> User Profile Page </h2>
-<%= @user.email %>
-<%= @user.answers.count %>
 
-<h2> Latest Questions you posted </h2>
+Welcome <%= @user.first_name %>
+<%= @user.last_name %><br>
+
+email: <%= @user.email %><br>
+about me: <%= @user.bio %> <br>
+
+user answer score: <%= @user.answers.count %>
+
+<h2> latest Questions you posted </h2>
+  <% @user.questions.each do |question| %>
+    <%= link_to question.title %>
+  <% end %>
 
 
-<h1> Here are the latests answers you have posted </h2>
+<h2> latest answers you have posted </h2>
   <% @user.answers.each do |answer| %>
-    <%= answer.body %>
-    <% end %>
+    <%= link_to answer.body %>
+  <% end %>
+
+
+<button><%= link_to 'edit profile', edit_user_registration_path %></button>
