@@ -38,6 +38,7 @@ body {
 /* div for show question section */
 div.question {
     height: auto;
+    word-wrap: break-word;
     padding: 10px;
     padding-right: 50px;
     padding-left: 50px;
@@ -51,6 +52,7 @@ div.question {
 /* div for show answer section */
 div.answer {
     height: auto;
+    word-wrap: break-word;
     padding: 5px;
     padding-right: 50px;
     padding-left: 50px;
@@ -73,6 +75,10 @@ div.nav {
 
 .vote {
     padding: 0px !important;
+}
+
+div.ans_button {
+    float: right !important;
 }
 
 /* color for nav bar */
