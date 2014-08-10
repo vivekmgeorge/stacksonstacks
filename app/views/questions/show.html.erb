@@ -16,10 +16,16 @@
 	</div>
 
 	<div class="col-md-11 question">
-		<h1><%= @question.title %></h1><br>
+		<h4>Question</h4>
+		<h2><%= @question.title %></h2><br>
 		<br>
-		<strong>Body: </strong><%= @question.body %><br><br>
+		<%= @question.body %><br><br>
 		<%= link_to 'delete question', question_path(@question), method: :delete  %>
+			<h5>Comments</h5>
+
+				<% @comments.each do |comment| %>
+					<strong>Body: </strong><%= comment.body %> <br> <br>
+				<% end %>
 	</div>
 
 
@@ -29,25 +35,9 @@
 	<div class="col-md-1 vote">
 	</div>
 	<div class="col-md-11 answer">
-			<h3>Answer</h3>
+			<h4>Answer</h4>
 				<% @question.answers.each do |answer| %>
 				<div><%= answer.body %></div>
 				<% end %>
 
 	</div>
-
-
-
-
-
-
-<h2>COMMENTS ON QUESTION</h2>
-
-<% @comments.each do |comment| %>
-	<strong>Body: </strong><%= comment.body %> <br> <br>
-<% end %>
-
-
-
-
-<%= link_to 'All Questions', root_path %>
