@@ -31,19 +31,19 @@ class AnswersController < ApplicationController
 		@answer.destroy
 	end
 
-  # def upvote
-	 #  @question = Question.find(params[:question_id])
-  #   @answer = Answer.find(params[:id])
-  #   @answer.upvote_from current_user
-  #   redirect_to question_path(@question)
-  # end
+  def upvote
+	  @question = Question.find(params[:question_id])
+    @answer = @question.answers.find(params[:id])
+    @answer.upvote_from current_user
+    redirect_to @question
+  end
 
-  # def downvote
-  # 	@question = Question.find(params[:question_id])
-  #   @answer = Answer.find(params[:id])
-  #   @answer.downvote_from current_user
-  #   redirect_to question_path(@question)
-  # end
+  def downvote
+  	@question = Question.find(params[:question_id])
+    @answer = @question.answers.find(params[:id])
+    @answer.downvote_from current_user
+    redirect_to @question
+  end
 
 	private
 
