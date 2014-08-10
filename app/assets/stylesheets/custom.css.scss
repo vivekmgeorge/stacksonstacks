@@ -151,12 +151,13 @@ div.box_yellow {
     border:none;
 }
 
-#button1 {
+#answer {
     background-color: #277BD6;
     color: white;
     font-family: 'Pontano Sans';
     font-size: 17px;
     cursor: pointer;
+    padding: 10px;
     border:none;
 }
 
@@ -166,6 +167,10 @@ div.box_yellow {
 
 .vote {
     padding: 0px !important;
+}
+
+#index {
+    color: black;
 }
 
 h4 { font-family: 'Pontano Sans', sans-serif; font-weight: bold; }
