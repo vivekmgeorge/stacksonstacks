@@ -1,3 +1,8 @@
 <h1> User Profile Page </h2>
 <%= @user.email %>
+<%= @user.answers.count %>
 
+
+<h1> Here are the latests answers you have posted </h2>
+  <% @user.answers.each do |answer| %>
+    <%= answer.
