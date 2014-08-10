@@ -2,7 +2,10 @@
 <%= @user.email %>
 <%= @user.answers.count %>
 
+<h2> Latest Questions you posted </h2>
+
 
 <h1> Here are the latests answers you have posted </h2>
   <% @user.answers.each do |answer| %>
-    <%= answer.
+    <%= answer.body %>
+    <% end %>
