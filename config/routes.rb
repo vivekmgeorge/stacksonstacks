@@ -9,11 +9,8 @@ Rails.application.routes.draw do
   get 'pages/about'
 
   root 'questions#index'
-  
 
-  #resources :answers
-#  resources :answers do
- 
+
   resources :questions do
     member do
       put 'like', to: 'questions#upvote'

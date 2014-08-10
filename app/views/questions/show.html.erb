@@ -14,6 +14,23 @@
 		</span>
 
 
+
+
+<br><br>
+
+<%= link_to 'delete question', question_path(@question), method: :delete  %>
+
+<h2>COMMENTS ON QUESTION</h2>
+
+<% @comments.each do |comment| %>
+	<strong>Body: </strong><%= comment.body %> <br> <br>
+<% end %>
+
+<h2> Answer Question </h2>
+<%= link_to "Answer Question", new_question_answer_path(@question) %>
+
+<h2>ANSWERS</h2>
+
 	</div>
 
 	<div class="col-md-11 question">
@@ -52,6 +69,8 @@
 <% @question.answers.each do |answer| %>
 	<div><%= answer.body %></div>
 <p><%= answer.get_upvotes.count %>
+
+<%= link_to 'All Questions', root_path %>
 
 <%= link_to 'Upvote', like_question_answer_path(@question, answer), method: :put, class: 'btn btn-success btn-xs' %></p>
 <p><%= answer.get_downvotes.count %>
