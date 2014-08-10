@@ -1,0 +1,12 @@
+<%= form_for [@question, @answer] do |f| %>
+	<p>
+		<%= f.label :body %>
+		<%= f.text_area :body, cols: 30, rows: 15 %>
+	</p>
+	
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>
+
+<%= link_to '<< back', :back %>

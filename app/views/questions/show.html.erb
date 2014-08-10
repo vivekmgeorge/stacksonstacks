@@ -34,11 +34,15 @@
 
 
 <h2> Answer Question </h2>
-<%= link_to "Answer Question", new_answer_path(@question) %>
+<%= link_to "Answer Question", new_question_answer_path(@question) %>
 
 <h2>ANSWERS</h2>
 <% @question.answers.each do |answer| %>
 	<div><%= answer.body %></div>
+<p><%= answer.get_upvotes.count %><%= link_to 'Upvote', like_question_answer_path(@question, answer), method: :put, class: 'btn btn-success btn-xs' %></p>
+<p><%= answer.get_downvotes.count %>
+<%= link_to 'Downvote', dislike_question_answer_path(@question, answer), method: :put, class: 'btn btn-danger btn-xs' %> </p>
+
 <% end %>
 
 
