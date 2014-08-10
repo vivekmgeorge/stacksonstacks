@@ -1,6 +1,7 @@
 .navbar-test {
   background-color: #4E4E4F;
   position: relative;
+  padding: 0px !important;
 }
 
 .navbar-font {
