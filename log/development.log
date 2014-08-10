@@ -19406,3 +19406,420 @@ Started GET "/assets/bootstrap-sprockets" for 127.0.0.1 at 2014-08-09 13:07:42 -
 
 
 Started GET "/assets/bootstrap" for 127.0.0.1 at 2014-08-09 13:07:42 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (420.2ms)[0m  DROP DATABASE IF EXISTS "refactor_this_test"
+  [1m[36m (1403.2ms)[0m  [1mCREATE DATABASE "refactor_this_test" ENCODING = 'utf8'[0m
+  [1m[35mSQL (41.7ms)[0m  CREATE EXTENSION IF NOT EXISTS "plpgsql"
+  [1m[36m (47.5ms)[0m  [1mCREATE TABLE "answers" ("id" serial primary key, "body" character varying(255), "question_id" integer, "created_at" timestamp, "updated_at" timestamp, "user_id" integer) [0m
+  [1m[35m (7.2ms)[0m  CREATE TABLE "comments" ("id" serial primary key, "body" character varying(255), "commentable_id" integer, "commentable_type" character varying(255), "created_at" timestamp, "updated_at" timestamp, "user_id" integer) 
+  [1m[36m (6.8ms)[0m  [1mCREATE TABLE "questions" ("id" serial primary key, "title" character varying(255), "body" character varying(255), "created_at" timestamp, "updated_at" timestamp, "user_id" integer) [0m
+  [1m[35m (9.1ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (2.8ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (1.9ms)[0m  CREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")
+  [1m[36m (6.7ms)[0m  [1mCREATE TABLE "votes" ("id" serial primary key, "votable_id" integer, "votable_type" character varying(255), "voter_id" integer, "voter_type" character varying(255), "vote_flag" boolean, "vote_scope" character varying(255), "vote_weight" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (2.2ms)[0m  CREATE  INDEX  "index_votes_on_votable_id_and_votable_type_and_vote_scope" ON "votes" USING btree ("votable_id", "votable_type", "vote_scope")
+  [1m[36m (2.6ms)[0m  [1mCREATE  INDEX  "index_votes_on_voter_id_and_voter_type_and_vote_scope" ON "votes" USING btree ("voter_id", "voter_type", "vote_scope")[0m
+  [1m[35m (1.6ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (2.1ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.5ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140808205649')[0m
+  [1m[35m (39.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140808003151')
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140808003155')[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140808003425')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140808190220')[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140808192519')
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-09 20:06:22 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by QuestionsController#index as HTML
+  [1m[35mQuestion Load (1.1ms)[0m  SELECT "questions".* FROM "questions"
+  [1m[36mUser Load (1.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered questions/index.html.erb within layouts/application (134.3ms)
+  Rendered shared/_navbar.html.erb (4.0ms)
+Completed 200 OK in 1164ms (Views: 999.6ms | ActiveRecord: 10.9ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-08-09 20:06:23 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-09 20:06:23 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-09 20:06:23 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-09 20:06:23 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-09 20:06:23 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-09 20:06:23 -0400
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-09 20:06:23 -0400
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2014-08-09 20:06:24 -0400
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-09 20:06:24 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-09 20:06:24 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-09 20:06:24 -0400
+
+
+Started GET "/assets/bootstrap-sprockets" for 127.0.0.1 at 2014-08-09 20:06:24 -0400
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2014-08-09 20:06:24 -0400
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2014-08-09 20:06:32 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"II+vVz3MRJQJ1pSmNrUikG1Ls79/7gyNi3ygdtuBj3o="}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (28.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 148ms (ActiveRecord: 29.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-09 20:06:32 -0400
+Processing by QuestionsController#index as HTML
+  [1m[36mQuestion Load (0.5ms)[0m  [1mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/index.html.erb within layouts/application (9.2ms)
+  Rendered shared/_navbar.html.erb (0.5ms)
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-09 20:06:32 -0400
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-08-09 20:06:32 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-09 20:06:32 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-09 20:06:32 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-09 20:06:32 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-09 20:06:32 -0400
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-09 20:06:32 -0400
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2014-08-09 20:06:32 -0400
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-09 20:06:32 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-09 20:06:32 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-09 20:06:32 -0400
+
+
+Started GET "/assets/bootstrap-sprockets" for 127.0.0.1 at 2014-08-09 20:06:32 -0400
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2014-08-09 20:06:32 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-09 20:07:17 -0400
+Processing by QuestionsController#index as HTML
+  [1m[35mQuestion Load (0.6ms)[0m  SELECT "questions".* FROM "questions"
+  Rendered questions/index.html.erb within layouts/application (4.8ms)
+  Rendered shared/_navbar.html.erb (0.7ms)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-09 20:07:17 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-09 20:07:17 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-09 20:07:17 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-09 20:07:17 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-09 20:07:17 -0400
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-08-09 20:07:17 -0400
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-09 20:07:17 -0400
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2014-08-09 20:07:17 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-09 20:07:17 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-09 20:07:17 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-09 20:07:17 -0400
+
+
+Started GET "/assets/bootstrap-sprockets" for 127.0.0.1 at 2014-08-09 20:07:17 -0400
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2014-08-09 20:07:17 -0400
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2014-08-09 20:07:53 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (1.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (74.8ms)
+  Rendered shared/_navbar.html.erb (1.0ms)
+Completed 200 OK in 112ms (Views: 110.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-08-09 20:08:57 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kfQ+J4aGkqdeIM7QdZy9KhjcrAQzwP4Uaww++SiBFzo=", "user"=>{"email"=>"smells@smdlfk.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'smells@smdlfk.com' LIMIT 1
+  [1m[36mSQL (20.7ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "encrypted_password", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-08-10 00:08:57.230430"], ["email", "smells@smdlfk.com"], ["encrypted_password", "$2a$10$Nrq//C20.qS/IvnasNHvoOUEpPKk4H8.wp.llR9uqhaxpg8GR8IrW"], ["updated_at", "2014-08-10 00:08:57.230430"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "current_sign_in_at" = $1, "current_sign_in_ip" = $2, "last_sign_in_at" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = 7  [["current_sign_in_at", "2014-08-10 00:08:57.258321"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2014-08-10 00:08:57.258321"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2014-08-10 00:08:57.260188"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 232ms (ActiveRecord: 24.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-09 20:08:57 -0400
+Processing by QuestionsController#index as HTML
+  [1m[35mQuestion Load (0.5ms)[0m  SELECT "questions".* FROM "questions"
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 7  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered questions/index.html.erb within layouts/application (5.2ms)
+  Rendered shared/_navbar.html.erb (0.4ms)
+Completed 200 OK in 16ms (Views: 13.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-09 20:08:57 -0400
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-08-09 20:08:57 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-09 20:08:57 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-09 20:08:57 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-09 20:08:57 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-09 20:08:57 -0400
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-09 20:08:57 -0400
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2014-08-09 20:08:57 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-09 20:08:57 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-09 20:08:57 -0400
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-09 20:08:57 -0400
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2014-08-09 20:08:57 -0400
+
+
+Started GET "/assets/bootstrap-sprockets" for 127.0.0.1 at 2014-08-09 20:08:57 -0400
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2014-08-09 20:10:57 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"kfQ+J4aGkqdeIM7QdZy9KhjcrAQzwP4Uaww++SiBFzo="}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 7  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-09 20:10:57 -0400
+Processing by QuestionsController#index as HTML
+  [1m[36mQuestion Load (0.5ms)[0m  [1mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/index.html.erb within layouts/application (3.2ms)
+  Rendered shared/_navbar.html.erb (0.5ms)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-09 20:10:57 -0400
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-08-09 20:10:57 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-09 20:10:57 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-09 20:10:57 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-09 20:10:57 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-09 20:10:57 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-09 20:10:57 -0400
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-09 20:10:57 -0400
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2014-08-09 20:10:57 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-09 20:10:57 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-09 20:10:57 -0400
+
+
+Started GET "/assets/bootstrap-sprockets" for 127.0.0.1 at 2014-08-09 20:10:57 -0400
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2014-08-09 20:10:57 -0400
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2014-08-09 20:11:03 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (0.5ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (5.8ms)
+  Rendered shared/_navbar.html.erb (10.3ms)
+Completed 200 OK in 36ms (Views: 33.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-09 20:17:29 -0400
+Processing by QuestionsController#index as HTML
+  [1m[35mQuestion Load (0.9ms)[0m  SELECT "questions".* FROM "questions"
+  Rendered questions/index.html.erb within layouts/application (5.2ms)
+  Rendered shared/_navbar.html.erb (2.0ms)
+Completed 200 OK in 23ms (Views: 20.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-09 20:34:37 -0400
+Processing by QuestionsController#index as HTML
+  [1m[36mQuestion Load (0.5ms)[0m  [1mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/index.html.erb within layouts/application (3.4ms)
+  Rendered shared/_navbar.html.erb (0.5ms)
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-09 20:34:39 -0400
+Processing by QuestionsController#index as HTML
+  [1m[35mQuestion Load (0.5ms)[0m  SELECT "questions".* FROM "questions"
+  Rendered questions/index.html.erb within layouts/application (3.0ms)
+  Rendered shared/_navbar.html.erb (0.7ms)
+Completed 200 OK in 69ms (Views: 67.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-08-09 20:34:41 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (43.2ms)
+  Rendered shared/_navbar.html.erb (0.8ms)
+Completed 200 OK in 58ms (Views: 55.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-09 21:01:39 -0400
+Processing by QuestionsController#index as HTML
+  [1m[36mQuestion Load (1.7ms)[0m  [1mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/index.html.erb within layouts/application (5.1ms)
+  Rendered shared/_navbar.html.erb (0.5ms)
+Completed 200 OK in 17ms (Views: 13.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-08-09 21:01:43 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.3ms)
+  Rendered shared/_navbar.html.erb (1.4ms)
+Completed 200 OK in 34ms (Views: 20.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2014-08-09 21:01:46 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7LeKf3jl2FuXH0ulGrDhjWQXL+CAQhckX4uBX/7qUXw=", "user"=>{"email"=>"dylanerichards@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (2.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'dylanerichards@gmail.com'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = 2  [["current_sign_in_at", "2014-08-10 01:01:46.206570"], ["last_sign_in_at", "2014-08-09 16:35:29.101511"], ["sign_in_count", 5], ["updated_at", "2014-08-10 01:01:46.207586"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 107ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-09 21:01:46 -0400
+Processing by QuestionsController#index as HTML
+  [1m[35mQuestion Load (0.5ms)[0m  SELECT "questions".* FROM "questions"
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered questions/index.html.erb within layouts/application (4.8ms)
+  Rendered shared/_navbar.html.erb (0.4ms)
+Completed 200 OK in 15ms (Views: 13.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-08-09 21:01:46 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-09 21:01:46 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-09 21:01:46 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-09 21:01:46 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-09 21:01:46 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-09 21:01:46 -0400
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-09 21:01:46 -0400
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-09 21:01:46 -0400
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2014-08-09 21:01:46 -0400
+
+
+Started GET "/assets/bootstrap-sprockets" for 127.0.0.1 at 2014-08-09 21:01:46 -0400
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2014-08-09 21:01:46 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-09 21:01:46 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-09 21:01:46 -0400
