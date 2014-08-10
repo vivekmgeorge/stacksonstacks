@@ -13,6 +13,7 @@
 			<%= link_to 'Downvote', dislike_question_path(@question), method: :put %>
 		</span>
 
+
 	</div>
 
 	<div class="col-md-11 question">
@@ -41,10 +42,20 @@
 				<div><%= answer.body %></div>
 				<% end %>
 				<% if current_user %>
-				<%= link_to 'Answer the question',new_question_answer_path(@question), id: "answer", method: :get %>
+				<%= link_to 'Answer Question',new_question_answer_path(@question), id: "answer", method: :get %>
 				<% end %>
 				<br>
 				<br>
 	</div>
 
 
+<% @question.answers.each do |answer| %>
+	<div><%= answer.body %></div>
+<p><%= answer.get_upvotes.count %>
+
+<%= link_to 'Upvote', like_question_answer_path(@question, answer), method: :put, class: 'btn btn-success btn-xs' %></p>
+<p><%= answer.get_downvotes.count %>
+
+<%= link_to 'Downvote', dislike_question_answer_path(@question, answer), method: :put, class: 'btn btn-danger btn-xs' %> </p>
+
+<% end %>
