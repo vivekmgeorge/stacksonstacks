@@ -1,22 +1,44 @@
-<h1><%= @question.title %></h1><br>
+<br>
+<div class="row">
+	<div class="col-md-1 vote">
 
-<h2>Upvotes/Downvotes</h2>
+			<strong>Score: <%= @question.score %></strong>
 
-<p>
-	<strong>Score: <%= @question.score %></strong>
-</p>
+		<span class="glyphicon glyphicon-chevron-up">
+			<%= @question.get_upvotes.count %><%= link_to 'Upvote', like_question_path(@question), method: :put %>
+		</span>
 
-<p>
-	<%= @question.get_upvotes.count %><%= link_to 'Upvote', like_question_path(@question), method: :put, class: 'btn btn-success btn-xs' %>
-</p>
+		<span class="glyphicon glyphicon-chevron-down">
+			<%= @question.get_downvotes.count %>
+			<%= link_to 'Downvote', dislike_question_path(@question), method: :put %>
+		</span>
 
-<p>
-	<%= @question.get_downvotes.count %>
-	<%= link_to 'Downvote', dislike_question_path(@question), method: :put, class: 'btn btn-danger btn-xs' %>
-</p>
+	</div>
 
-<strong>Body: </strong><%= @question.body %><br><br>
-<%= link_to 'delete question', question_path(@question), method: :delete  %>
+	<div class="col-md-11 question">
+		<h1><%= @question.title %></h1><br>
+		<br>
+		<strong>Body: </strong><%= @question.body %><br><br>
+		<%= link_to 'delete question', question_path(@question), method: :delete  %>
+	</div>
+
+
+</div>
+
+<div class="row">
+	<div class="col-md-1 vote">
+	</div>
+	<div class="col-md-11 answer">
+			<h3>Answer</h3>
+				<% @question.answers.each do |answer| %>
+				<div><%= answer.body %></div>
+				<% end %>
+
+	</div>
+
+
+
+
 
 
 <h2>COMMENTS ON QUESTION</h2>
@@ -26,10 +48,6 @@
 <% end %>
 
 
-<h2>ANSWERS</h2>
-<% @question.answers.each do |answer| %>
-	<div><%= answer.body %></div>
-<% end %>
 
 
 <%= link_to 'All Questions', root_path %>
