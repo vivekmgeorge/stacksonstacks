@@ -13,7 +13,12 @@ a:visited {
 
 /* mouse over link */
 a:hover {
-    color: #277BD6;
+    color: #FFC400;
+}
+
+/* selected link */
+a:active {
+    color: #FFC400;
 }
 
 /* body text changes */
@@ -53,7 +58,7 @@ div.question {
 div.answer {
     height: auto;
     word-wrap: break-word;
-    padding: 5px;
+    padding: 10px;
     padding-right: 50px;
     padding-left: 50px;
     border: 1px;
@@ -63,14 +68,16 @@ div.answer {
     background-color: #F0F0F0;
 }
 
-/* not being used yet */
-div.nav {
-    width: 1000px;
-    height: 40px;
-    padding: 10px;
-    border: 1px solid gray;
-    color: white;
-    background-color: #4E4E4F;
+div.title {
+    height: auto;
+    word-wrap: break-word;
+    padding-right: 50px;
+    padding-left: 50px;
+    border: 1px;
+    color: black;
+    border-style: solid;
+    border-color: #A3A3A3;
+    background-color: #F0F0F0;
 }
 
 .vote {
@@ -85,3 +92,37 @@ div.ans_button {
 div.container-fluid {
     background-color: #4E4E4F;
     }
+
+#arrow {
+    font-size: 50px;
+}
+
+.col-md-1 {
+    text-align: center;
+    font-size: 20px;
+}
+
+#count {
+    text-align: center !important;
+    font-size: 20px !important;
+}
+
+.submit {
+    background-color: #277BD6;
+    color: white;
+    font-family: 'Pontano Sans';
+    font-size: 17px;
+    cursor: pointer;
+    padding: 10px;
+    border:none;
+}
+
+input[type="button"].close {
+    background-color: #E3E3E3 !important;
+    color: white;
+    font-family: 'Pontano Sans';
+    font-size: 17px;
+    cursor: pointer;
+    padding: 10px;
+    border:none;
+}
