@@ -37,25 +37,18 @@
 	</div>
 	<div class="col-md-11 answer">
 			<h4>Answer</h4>
+				<br>
 				<% @question.answers.each do |answer| %>
 				<div><%= answer.body %></div>
 				<% end %>
-
+				<% if current_user %>
+				<%= link_to 'Answer Question',new_question_answer_path(@question), id: "answer", method: :get %>
+				<% end %>
+				<br>
+				<br>
 	</div>
 
-<<<<<<< HEAD
 
-<h2>COMMENTS ON QUESTION</h2>
-
-<% @comments.each do |comment| %>
-	<strong>Body: </strong><%= comment.body %> <br> <br>
-<% end %>
-
-
-<h2> Answer Question </h2>
-<%= link_to "Answer Question", new_question_answer_path(@question) %>
-
-<h2>ANSWERS</h2>
 <% @question.answers.each do |answer| %>
 	<div><%= answer.body %></div>
 <p><%= answer.get_upvotes.count %>
@@ -66,8 +59,3 @@
 <%= link_to 'Downvote', dislike_question_answer_path(@question, answer), method: :put, class: 'btn btn-danger btn-xs' %> </p>
 
 <% end %>
-
-
-<%= link_to 'All Questions', root_path %>
-=======
->>>>>>> 0d122c9c4c5e0ca5e087cffeed4c81f1ee67d4a4
