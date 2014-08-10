@@ -1,25 +1,23 @@
-<h1><%= @question.title %></h1><br>
+<br>
+<div class="row">
+	<div class="col-md-1 vote">
 
-<h2>Upvotes/Downvotes</h2>
+			<strong>Score: <%= @question.score %></strong>
 
-<p>
-	<strong>Score: <%= @question.score %></strong>
-</p>
+		<span class="glyphicon glyphicon-chevron-up">
+			<%= @question.get_upvotes.count %><%= link_to 'Upvote', like_question_path(@question), method: :put %>
+		</span>
 
-<p>
-	<%= @question.get_upvotes.count %><%= link_to 'Upvote', like_question_path(@question), method: :put, class: 'btn btn-success btn-xs' %>
-</p>
+		<span class="glyphicon glyphicon-chevron-down">
+			<%= @question.get_downvotes.count %>
+			<%= link_to 'Downvote', dislike_question_path(@question), method: :put %>
+		</span>
 
-<p>
-	<%= @question.get_downvotes.count %>
-	<%= link_to 'Downvote', dislike_question_path(@question), method: :put, class: 'btn btn-danger btn-xs' %>
-</p>
 
-<strong>Body: </strong><%= @question.body %>
+
 
 <br><br>
 
-<strong>Body: </strong><%= @question.body %><br><br>
 <%= link_to 'delete question', question_path(@question), method: :delete  %>
 
 <h2>COMMENTS ON QUESTION</h2>
@@ -32,8 +30,51 @@
 <%= link_to "Answer Question", new_question_answer_path(@question) %>
 
 <h2>ANSWERS</h2>
+
+	</div>
+
+	<div class="col-md-11 question">
+		<h4>Question</h4>
+		<h2><%= @question.title %></h2><br>
+		<br>
+		<%= @question.body %><br><br>
+		<%= link_to 'delete question', question_path(@question), method: :delete  %>
+			<h5>Comments</h5>
+
+				<% @comments.each do |comment| %>
+					<strong>Body: </strong><%= comment.body %> <br> <br>
+				<% end %>
+	</div>
+
+
+</div>
+
+<div class="row">
+	<div class="col-md-1 vote">
+	</div>
+	<div class="col-md-11 answer">
+			<h4>Answer</h4>
+				<br>
+				<% @question.answers.each do |answer| %>
+				<div><%= answer.body %></div>
+				<% end %>
+				<% if current_user %>
+				<%= link_to 'Answer Question',new_question_answer_path(@question), id: "answer", method: :get %>
+				<% end %>
+				<br>
+				<br>
+	</div>
+
+
 <% @question.answers.each do |answer| %>
 	<div><%= answer.body %></div>
-<% end %>
+<p><%= answer.get_upvotes.count %>
 
 <%= link_to 'All Questions', root_path %>
+
+<%= link_to 'Upvote', like_question_answer_path(@question, answer), method: :put, class: 'btn btn-success btn-xs' %></p>
+<p><%= answer.get_downvotes.count %>
+
+<%= link_to 'Downvote', dislike_question_answer_path(@question, answer), method: :put, class: 'btn btn-danger btn-xs' %> </p>
+
+<% end %>
