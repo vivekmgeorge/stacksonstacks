@@ -21,14 +21,11 @@ body a:active {
 body {
 	font-family: 'Pontano Sans', sans-serif !important;
 	padding-bottom: 25px;
-	padding-right: 50px;
-	padding-left: 50px;
     text-align: left !important;
     background-color: #E3E3E3 !important;
 	}
 
 div.background {
-    width: 1000px;
     height: 40px;
     padding: 10px;
     border: 1px solid gray;
@@ -36,20 +33,22 @@ div.background {
 }
 
 div.question {
-    width: 1000px;
-    height: 40px;
+    height: auto;
     padding: 10px;
+    padding-right: 50px;
+    padding-left: 50px;
     color: black;
     border: 1px;
     border-style: solid;
-    border-color: white;
+    border-color: #A3A3A3;
     background-color: white;
 }
 
 div.answer {
-    width: 1000px;
-    height: 40px;
+    height: auto;
     padding: 10px;
+    padding-right: 50px;
+    padding-left: 50px;
     border: 1px;
     color: black;
     border-style: solid;
@@ -165,7 +164,9 @@ div.box_yellow {
     color: white;
 }
 
-
+.vote {
+    padding: 0px !important;
+}
 
 h4 { font-family: 'Pontano Sans', sans-serif; font-weight: bold; }
 
