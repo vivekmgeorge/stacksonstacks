@@ -5,8 +5,8 @@
 <% end %>
 <br>
 <% if current_user %>
-  <input type="submit" data-toggle="modal" value="Ask Question" id="submit" class:"submit" data-target="#myModal">
-
+  <input type="submit" data-toggle="modal" id="submit" class:"submit" data-target="#myModal"><%= link_to 'Booooop', new_question_path, id:"button", class:"submit", data_target:"#myModal" %>
+  <% end %>
 <!-- Modal -->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
@@ -15,16 +15,12 @@
 		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 		        <h4 class="modal-title" id="myModalLabel">Write your question below</h4>
 		      </div>
-		      <input type="text" class="modal-body" placeholder="write your question here..">
+
 		        
 		      <!-- </div> -->
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		        <button type="button" class="btn btn-primary">Save changes</button>
-		      </div>
+		        <button type="button" class="btn btn-primary">Save</button>
 		    </div>
 		  </div>
 		</div>
-
-
-<% end %>
