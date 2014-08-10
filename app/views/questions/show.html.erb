@@ -15,6 +15,13 @@
 	<%= link_to 'Downvote', dislike_question_path(@question), method: :put, class: 'btn btn-danger btn-xs' %>
 </p>
 
+
+<strong>Body: </strong><%= @question.body %>
+
+
+<br><br>
+
+
 <strong>Body: </strong><%= @question.body %><br><br>
 <%= link_to 'delete question', question_path(@question), method: :delete  %>
 
@@ -25,6 +32,9 @@
 	<strong>Body: </strong><%= comment.body %> <br> <br>
 <% end %>
 
+
+<h2> Answer Question </h2>
+<%= link_to "Answer Question", new_answer_path(@question) %>
 
 <h2>ANSWERS</h2>
 <% @question.answers.each do |answer| %>
