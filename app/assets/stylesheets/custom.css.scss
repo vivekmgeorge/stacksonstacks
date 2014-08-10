@@ -1,0 +1,173 @@
+/* unvisited link */
+a:link {
+    color: #A6A4A4;
+}
+
+/* visited link */
+a:visited {
+    color: #A6A4A4;
+}
+
+/* mouse over link */
+body a:hover {
+    color: #277BD6;
+}
+
+/* selected link */
+body a:active {
+    color: #277BD6;
+}
+
+body {
+	font-family: 'Pontano Sans', sans-serif !important;
+	padding-bottom: 25px;
+    text-align: left !important;
+    background-color: #E3E3E3 !important;
+	}
+
+div.background {
+    height: 40px;
+    padding: 10px;
+    border: 1px solid gray;
+    background-color: #E3E3E3;
+}
+
+div.question {
+    height: auto;
+    padding: 10px;
+    padding-right: 50px;
+    padding-left: 50px;
+    color: black;
+    border: 1px;
+    border-style: solid;
+    border-color: #A3A3A3;
+    background-color: white;
+}
+
+div.answer {
+    height: auto;
+    padding: 10px;
+    padding-right: 50px;
+    padding-left: 50px;
+    border: 1px;
+    color: black;
+    border-style: solid;
+    border-color: #A3A3A3;
+    background-color: #F0F0F0;
+}
+
+div.nav {
+    width: 1000px;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid gray;
+    color: white;
+    background-color: #4E4E4F;
+}
+
+div.test_back {
+    width: 1200px;
+    height: 500px;
+    padding: 10px;
+    border: 1px solid gray;
+    color: white;
+    background-color: #E3E3E3;
+}
+
+.col-centered {
+    float: none;
+		margin: 0 auto;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid gray;
+    border: 1px solid gray;
+    background-color: white;
+}
+
+div.box_blue {
+    width: 100px;
+    height: 40px;
+    padding: 10px;
+    color: white;
+    background-color: #277BD6;
+}
+
+div.box_red {
+    width: 100px;
+    height: 40px;
+    padding: 10px;
+    color: white;
+    background-color: #F0513C;
+}
+
+
+div.box_nav {
+    width: 100px;
+    height: 40px;
+    padding: 10px;
+    color: white;
+    background-color: #4E4E4F;
+}
+
+div.box_dark {
+    width: 100px;
+    height: 40px;
+    padding: 10px;
+    color: white;
+    background-color: #E3E3E3;
+}
+
+div.box_test {
+    width: 150px;
+    height: 40px;
+    padding: 10px;
+    color: white;
+    background-color: #E3E3E3;
+}
+
+div.box_light {
+    width: 100px;
+    height: 40px;
+    padding: 10px;
+    color: white;
+    background-color: #F0F0F0;
+}
+
+div.box_yellow {
+    width: 100px;
+    height: 40px;
+    padding: 10px;
+    color: white;
+    background-color: #FFC400;
+}
+
+#question {
+    background-color: #277BD6;
+    color: white;
+    font-family: 'Pontano Sans';
+    font-size: 17px;
+    cursor: pointer;
+    padding: 10px;
+    border:none;
+}
+
+#button1 {
+    background-color: #277BD6;
+    color: white;
+    font-family: 'Pontano Sans';
+    font-size: 17px;
+    cursor: pointer;
+    border:none;
+}
+
+.checking {
+    color: white;
+}
+
+.vote {
+    padding: 0px !important;
+}
+
+h4 { font-family: 'Pontano Sans', sans-serif; font-weight: bold; }
+
+
