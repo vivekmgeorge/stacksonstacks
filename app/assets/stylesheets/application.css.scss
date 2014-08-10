@@ -51,7 +51,7 @@ div.question {
 /* div for show answer section */
 div.answer {
     height: auto;
-    padding: 10px;
+    padding: 5px;
     padding-right: 50px;
     padding-left: 50px;
     border: 1px;
@@ -74,3 +74,8 @@ div.nav {
 .vote {
     padding: 0px !important;
 }
+
+/* color for nav bar */
+div.container-fluid {
+    background-color: #4E4E4F;
+    }
