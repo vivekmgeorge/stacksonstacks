@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
-	get 'users/:id/show', to: 'users#show', as: 'show'
+  get 'users/:id/show', to: 'users#show', as: 'show'
   resources :comments
 
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
+
 
   get 'pages/home'
   get 'pages/about'
@@ -16,13 +17,13 @@ Rails.application.routes.draw do
       put 'like', to: 'questions#upvote'
       put 'dislike', to: 'questions#downvote'
     end
-    resources :answers do 
+    resources :answers do
       member do
         put 'like', to: 'answers#upvote'
         put 'dislike', to: 'answers#downvote'
       end
-    end    
-    resources :answers 
+    end
+    resources :answers
     resources :comments
   end
 end
