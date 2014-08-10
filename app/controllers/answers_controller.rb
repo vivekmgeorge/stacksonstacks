@@ -31,20 +31,6 @@ class AnswersController < ApplicationController
 		@answer.destroy
 	end
 
-	# def upvote
-	#   @post = Post.find(params[:post_id])
-	#   @comment = @post.comments.find(params[:id])
-	#   @comment.liked_by current_user
-	#   redirect_to @post
-	# end
-
-	# def downvote
-	#   @post = Post.find(params[:post_id])
-	#   @comment = @post.comments.find(params[:id])
-	#   @comment.downvote_from current_user
-	#   redirect_to @post
-	# end
-
   def upvote
 	  @question = Question.find(params[:question_id])
     @answer = @question.answers.find(params[:id])
