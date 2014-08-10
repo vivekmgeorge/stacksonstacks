@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   get 'pages/about'
 
   root 'questions#index'
-  
 
   #resources :answers
   # resources :answers do
@@ -18,7 +17,6 @@ Rails.application.routes.draw do
   #     put 'dislike', to: 'questions#answers#downvote'
   #   end
   # end
-
 
   resources :questions do
   	member do
