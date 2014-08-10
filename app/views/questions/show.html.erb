@@ -39,22 +39,23 @@
 
 	<div class="col-md-1 vote">
 	<br>
+	<div class='vote_stats'>
 		<% @question.answers.each do |answer| %>
-			<% answer.get_upvotes.count %><br>
-			<div class="col-md-1 vote"><%= link_to like_question_answer_path(@question, answer), method: :put do  %>
-				<span id="arrow" class="glyphicon glyphicon-chevron-up"></span>
-			<% end %></div>
 			
-			<br>
-				<div id="count"><%= answer.get_upvotes.count - answer.get_downvotes.count %></div>
-			<br>
+				<% answer.get_upvotes.count %><br>
+				<div class="col-md-1 vote"><%= link_to like_question_answer_path(@question, answer), method: :put do  %>
+					<span id="ans_arrow" class="glyphicon glyphicon-chevron-up"></span>
+				<% end %></div>
+				
+					<div id="count"><%= answer.get_upvotes.count - answer.get_downvotes.count %></div>
 
-			<% answer.get_downvotes.count %>
-			<div class="col-md-1 vote"><%= link_to dislike_question_answer_path(@question, answer), method: :put do %>
-				<span id="arrow" class="glyphicon glyphicon-chevron-down"></span>
-			<% end %></div>
+				<% answer.get_downvotes.count %>
+				<div class="col-md-1 vote"><%= link_to dislike_question_answer_path(@question, answer), method: :put do %>
+					<span id="ans_arrow" class="glyphicon glyphicon-chevron-down"></span>
+				<% end %></div>
 
 		<% end %>
+		</div>
 
 	</div>
 
