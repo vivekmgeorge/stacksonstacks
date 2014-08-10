@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
   root 'questions#index'
 
-
   resources :questions do
     member do
       put 'like', to: 'questions#upvote'
@@ -23,6 +22,7 @@ Rails.application.routes.draw do
         put 'dislike', to: 'answers#downvote'
       end
     end
+
     resources :answers
     resources :comments
   end
