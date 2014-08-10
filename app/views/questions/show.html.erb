@@ -20,13 +20,15 @@
 		<h2><%= @question.title %></h2><br>
 		<br>
 		<%= @question.body %><br><br>
-		<%= link_to 'delete question', question_path(@question), method: :delete  %>
+		<%= link_to 'Delete question', question_path(@question), method: :delete  %>
 
 <!-- Comment section of the show page  -->
 		<h5>Comments</h5>
 		<% @comments.each do |comment| %>
 			<strong>Body: </strong><%= comment.body %> <br> <br>
 		<% end %>
+
+		<%= link_to 'Help improve the qestion?', new_question_comment_path(@question), method: :get %> 
 	
 	</div>
 </div>
@@ -34,8 +36,9 @@
 <!-- new row for answers -->
 <div class="row">
 	<!-- voting section for answers  -->
+
 	<div class="col-md-1 vote">
-				
+	<br>
 		<% @question.answers.each do |answer| %>
 			<% answer.get_upvotes.count %><br>
 			<div class="col-md-1 vote"><%= link_to like_question_answer_path(@question, answer), method: :put do  %>
@@ -66,10 +69,13 @@
 		<% end %>			
 		<br>
 	</div>
+</div>
 
 <!-- link for current users answer the question-->
+<br>
+<div class="row">
 	<% if current_user %>
-		<%= link_to 'Answer Question',new_question_answer_path(@question), id: "button", method: :get %>
+		<div class="col-md-3 ans_button"><%= link_to 'Answer Question',new_question_answer_path(@question), id: "button", method: :get %></div>
 	<% end %>
 	<br>
 	<br>
