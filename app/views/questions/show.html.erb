@@ -13,22 +13,6 @@
 		<% end %>
 
 
-
-<br><br>
-
-<%= link_to 'delete question', question_path(@question), method: :delete  %>
-
-<h2>COMMENTS ON QUESTION</h2>
-
-<% @comments.each do |comment| %>
-	<strong>Body: </strong><%= comment.body %> <br> <br>
-<% end %>
-
-<h2> Answer Question </h2>
-<%= link_to "Answer Question", new_question_answer_path(@question) %>
-
-<h2>ANSWERS</h2>
-
 	</div>
 
 	<div class="col-md-11 question">
