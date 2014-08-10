@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 	def index
-		@commentable = find_commentable
-		@comments = @commentable.comments
+		# @commentable = find_commentable
+		# @comments = @commentable.comments
 	end
 
 	def show
@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
 		@comment = @commentable.comments.build(comment_params)
 		if @comment.save
 		  flash[:notice] = "Successfully created comment."
-		  redirect_to :id => nil
+		  redirect_to root_path
 		else
 		  render :action => 'new'
 		end
@@ -40,11 +40,17 @@ class CommentsController < ApplicationController
 	end
 
 	def find_commentable
-	  params.each do |name, value|
+		puts params
+		puts "before loops"
+	  params["comment"].each do |name, value|
 	    if name =~ /(.+)_id$/
-	      return $1.classify.constantize.find(value)
+	    	p $1
+	    	p $1.classify.constantize
+	    	p value.to_i
+	      return $1.classify.constantize.find(value.to_i)
 	    end
 	  end
+	  puts "after loop"
 	  nil
 	end
 end
