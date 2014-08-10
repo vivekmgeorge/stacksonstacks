@@ -1,9 +1,9 @@
-<h1> All Questions </h1>
+<h3> All Questions </h3>
 
 <% @questions.each do |question| %>
-  <%= link_to question.title, question %> <br>
+  <h1><%= link_to question.title, question, id:"index" %> </h1>
 <% end %>
-
+<br>
 <% if current_user %>
   <%= link_to 'Ask Question', new_question_path, id:"question", class:"submit" %>
 <% end %>
