@@ -10,7 +10,7 @@ class AnswersController < ApplicationController
 
 	def create
 		@question = find_question
-		@answer = current_user.answers.create(body: 
+		@answer = current_user.answers.create(body:
 			params[:answer][:body], question_id: @question.id)
 		if @answer.save
 			redirect_to question_path(@question)
@@ -62,7 +62,7 @@ class AnswersController < ApplicationController
 	private
 	def answer_params
 		params.require(:answer).permit(:body)
-	end	
+	end
 
 	def find_question
 		params.each do |name, value|
