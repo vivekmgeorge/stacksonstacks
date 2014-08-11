@@ -1,6 +1,9 @@
 <h1>New Comment</h1>
 
 <%= form_for @comment do |f| %>
+	<%= f.hidden_field :question_id, value: params[:question_id] %>
+	<%= f.hidden_field :answer_id, value: params[:answer_id] %>
+	
 	<p>
 		<%= f.label :body %>
 		<%= f.text_area :body, cols: 15, rows: 7 %>
