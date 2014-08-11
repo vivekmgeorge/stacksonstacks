@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :questions
   has_many :answers
+  # The user is NOT involved in the polmorphic relationship.
   has_many :comments
 
   acts_as_voter

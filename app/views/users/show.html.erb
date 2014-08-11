@@ -10,14 +10,14 @@ user answer score: <%= @user.answers.count %>
 
 <h2> latest Questions you posted </h2>
   <% @user.questions.each do |question| %>
-    <%= link_to question.title %>
+    <%= link_to question.title %><br>
   <% end %>
 
 
 <h2> latest answers you have posted </h2>
   <% @user.answers.each do |answer| %>
-    <%= link_to answer.body %>
-  <% end %>
+    <%= link_to answer.body, answer.question_id %><br>
+  <% end %><br>
 
 
 <button><%= link_to 'edit profile', edit_user_registration_path %></button>
