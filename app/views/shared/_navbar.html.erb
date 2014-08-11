@@ -29,7 +29,7 @@
         <% end %>
           <ul class="dropdown-menu" role="menu">
             <% unless current_user %>
-              <li><%= link_to 'sign in', @new_user_session_path %></li>
+              <li><%= link_to 'sign in',new_user_session_path %></li>
               <li><%= link_to 'sign up', new_user_registration_path %></li>
             <% else %>
               <li><%= link_to 'account settings', edit_user_registration_path %></li>
