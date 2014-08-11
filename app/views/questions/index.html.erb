@@ -1,10 +1,4 @@
 <h3> All Questions </h3>
-<% if current_user %>
-  <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-  	<%= link_to 'Ask Question', new_question_path, id:"button", class:"submit" %>
- </button>
-  <% end %>
-
 
 <% @questions.each do |question| %>
   <h1><%= link_to question.title, question, id:"index" %> </h1>
