@@ -9,7 +9,6 @@ class UsersController < ApplicationController
   # the UsersController and implemented our own for user profiles.
   def show
   	@user = User.find(params[:id])
-    @question = Question.find(params[:id])
   end
 
 
