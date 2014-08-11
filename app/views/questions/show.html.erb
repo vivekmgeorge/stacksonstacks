@@ -23,8 +23,9 @@
 		<% user_id = @question.user_id %>
 		By: <%= User.find(user_id).first_name %>
 		<br>
+		<% if current_user.id == @question.user_id %>
 		<%= link_to 'Delete question', question_path(@question), method: :delete  %>
-
+		<% end %>
 <!-- Comment section of the show page  -->
 		<h5>Comments</h5>
 		<% @comments.each do |comment| %>
@@ -69,11 +70,19 @@
 	</div>
 		<br>
 		<% @question.answers.each do |answer| %>
-			<div class="col-md-11 answer"><%= answer.body %><br>
+			<div class="col-md-11 answer"><%= answer.body %>	<br>
+			<% if current_user.id == answer.user_id %> 
+			<%= link_to "Delete Answer", question_answer_path(@question, answer), method: :delete %>
+			<%= link_to "Edit Answer", edit_question_answer_path(@question, answer), method: :get %><br>
 			By: <!-- user name goes here -->
+			<% end %>
+		<% end %>
+
+
+
 			</div> 
-		<% end %>			
 		<br>
+
 	</div>
 </div>
 
@@ -81,7 +90,7 @@
 <br>
 <div class="row">
 	<% if current_user %>
-		<div class="col-md-3 ans_button"><%= link_to 'Answer Question',new_question_answer_path(@question), id: "button", method: :get %></div>
+		<div class="col-md-3 ans_button"><%= link_to 'Answer Question', new_question_answer_path(@question), id: "button", method: :get %></div>
 	<% end %>
 	<br>
 	<br>
