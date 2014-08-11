@@ -10,7 +10,8 @@ class AnswersController < ApplicationController
 
 	def create
 		@question = find_question
-		@answer = @question.answers.build(answer_params)
+		@answer = current_user.answers.create(body: 
+			params[:answer][:body], question_id: @question.id)
 		if @answer.save
 			redirect_to question_path(@question)
 		else
@@ -32,7 +33,7 @@ class AnswersController < ApplicationController
 	end
 
   def upvote
-	  @question = Question.find(params[:question_id])
+	@question = Question.find(params[:question_id])
     @answer = @question.answers.find(params[:id])
     @answer.upvote_from current_user
     redirect_to @question
@@ -46,10 +47,6 @@ class AnswersController < ApplicationController
   end
 
 	private
-
-	def answer_params
-		params.require(:answer).permit(:body, :question_id)
-	end
 
 	def find_question
 		params.each do |name, value|

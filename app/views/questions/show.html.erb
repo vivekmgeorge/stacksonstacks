@@ -4,13 +4,13 @@
 	<div class="col-md-1 vote">
 	
 		<%= link_to like_question_path(@question), method: :put do  %>
-			<span class="glyphicon glyphicon-chevron-up"></span>
+			<span id="arrow" class="glyphicon glyphicon-chevron-up"></span>
 		<% end %>
 		<br>
 			<strong><%= @question.score %></strong>
 		<br>
 		<%= link_to dislike_question_path(@question), method: :put do %>
-			<span class="glyphicon glyphicon-chevron-down"></span> 
+			<span id="arrow" class="glyphicon glyphicon-chevron-down"></span> 
 		<% end %>
 	</div>
 
@@ -20,6 +20,9 @@
 		<h2><%= @question.title %></h2><br>
 		<br>
 		<%= @question.body %><br><br>
+		<% user_id = @question.user_id %>
+		By: <%= User.find(user_id).first_name %>
+		<br>
 		<%= link_to 'Delete question', question_path(@question), method: :delete  %>
 
 <!-- Comment section of the show page  -->
@@ -28,7 +31,8 @@
 			<strong>Body: </strong><%= comment.body %> <br> <br>
 		<% end %>
 
-		<%= link_to 'Help improve the qestion?', new_question_comment_path(@question), method: :get %> 
+		<%= link_to 'Help improve the question?', new_question_comment_path(@question), method: :get %> 
+	
 	</div>
 </div>
 
@@ -38,33 +42,35 @@
 
 	<div class="col-md-1 vote">
 	<br>
-		<% @question.answers.each do |answer| %>
-			<% answer.get_upvotes.count %><br>
-			<div class="col-md-1 vote"><%= link_to like_question_answer_path(@question, answer), method: :put do  %>
-				<span class="glyphicon glyphicon-chevron-up"></span>
-			<% end %></div>
-			
-			<br>
-				<strong><%= answer.get_upvotes.count - answer.get_downvotes.count %></strong>
-			<br>
+		<div class='vote_stats'>
+			<% @question.answers.each do |answer| %>	
+				<% answer.get_upvotes.count %>
+					<div class="vote"><%= link_to like_question_answer_path(@question, answer), method: :put do  %>
+						<span id="ans_arrow" class="glyphicon glyphicon-chevron-up"></span>
+					<% end %></div>
+					
+					<div class="count"><%= answer.get_upvotes.count - answer.get_downvotes.count %></div>
 
-			<% answer.get_downvotes.count %>
-			<div class="col-md-1 vote"><%= link_to dislike_question_answer_path(@question, answer), method: :put do %>
-				<span class="glyphicon glyphicon-chevron-down"></span>
-			<% end %></div>
+					<% answer.get_downvotes.count %>
+					<div class="vote"><%= link_to dislike_question_answer_path(@question, answer), method: :put do %>
+						<span id="ans_arrow" class="glyphicon glyphicon-chevron-down"></span>
+					<% end %></div>
 
-		<% end %>
+			<% end %>
+		</div>
 
 	</div>
 
 <!-- Answer section -->
 
-	<div class="col-md-11 answer">
+	<div class="col-md-11 title">
 		<h4>Answer</h4>
 	</div>
 		<br>
 		<% @question.answers.each do |answer| %>
-			<div class="col-md-11 answer"><%= answer.body %><br></div>
+			<div class="col-md-11 answer"><%= answer.body %><br>
+			By: <!-- user name goes here -->
+			</div> 
 		<% end %>			
 		<br>
 	</div>
