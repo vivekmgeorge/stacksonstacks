@@ -18,6 +18,8 @@ class QuestionsController < ApplicationController
   end
 
   def create
+    # Using current_user and #create/#build to add a question
+    # to the current user's array of questions
   	@question = current_user.questions.create(question_params)
     redirect_to question_path(@question)
   end

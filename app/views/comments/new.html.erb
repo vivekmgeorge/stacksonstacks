@@ -1,6 +1,7 @@
 <h1>New Comment</h1>
 
 <%= form_for @comment do |f| %>
+	<!-- Using hidden fields to pass paramaters into the comment -->
 	<%= f.hidden_field :question_id, value: params[:question_id] %>
 	<%= f.hidden_field :answer_id, value: params[:answer_id] %>
 	
