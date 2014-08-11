@@ -29,7 +29,8 @@
 <!-- Comment section of the show page  -->
 		<h5>Comments</h5>
 		<% @comments.each do |comment| %>
-			<strong>Body: </strong><%= comment.body %> <br> <br>
+			<%= comment.body %> 
+			<br> <br>
 		<% end %>
 
 		<%= link_to 'Help improve the question?', new_question_comment_path(@question), method: :get %> 
@@ -70,15 +71,15 @@
 	</div>
 		<br>
 		<% @question.answers.each do |answer| %>
-			<div class="col-md-11 answer"><%= answer.body %>	<br>
+			<div class="col-md-11 answer"><%= answer.body %><br>
+			<% user_id = answer.user_id %>
 			<% if current_user.id == answer.user_id %> 
 			<%= link_to "Delete Answer", question_answer_path(@question, answer), method: :delete %>
 			<%= link_to "Edit Answer", edit_question_answer_path(@question, answer), method: :get %><br>
 			By: <!-- user name goes here -->
-			<% end %>
+			<% end %><br>
+			By:	<%= User.find(user_id).first_name %>
 		<% end %>
-
-
 
 			</div> 
 		<br>
