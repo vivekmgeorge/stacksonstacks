@@ -5175,3 +5175,93 @@ Completed 200 OK in 41ms (Views: 35.1ms | ActiveRecord: 3.5ms)
 
 
 Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-08-10 19:56:01 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-10 22:38:40 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by QuestionsController#index as HTML
+  [1m[35mQuestion Load (1.7ms)[0m  SELECT "questions".* FROM "questions"
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered questions/index.html.erb within layouts/application (105.3ms)
+  Rendered shared/_navbar.html.erb (1.1ms)
+Completed 200 OK in 267ms (Views: 228.7ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-10 22:38:40 -0400
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-10 22:38:40 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-10 22:38:40 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-10 22:38:40 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-10 22:38:40 -0400
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2014-08-10 22:38:40 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-10 22:38:40 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-10 22:38:40 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-10 22:38:42 -0400
+Processing by QuestionsController#index as HTML
+  [1m[35mQuestion Load (0.4ms)[0m  SELECT "questions".* FROM "questions"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered questions/index.html.erb within layouts/application (5.1ms)
+  Rendered shared/_navbar.html.erb (0.9ms)
+Completed 200 OK in 14ms (Views: 12.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-10 22:38:45 -0400
+Processing by QuestionsController#index as HTML
+  [1m[35mQuestion Load (0.4ms)[0m  SELECT "questions".* FROM "questions"
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered questions/index.html.erb within layouts/application (4.7ms)
+  Rendered shared/_navbar.html.erb (0.3ms)
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2014-08-10 22:38:52 -0400
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (1.3ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "votes"  WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Question"]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "votes"  WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Question"]]
+  Rendered questions/show.html.erb within layouts/application (20.3ms)
+Completed 500 Internal Server Error in 51ms
+
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  app/views/questions/show.html.erb:24:in `_app_views_questions_show_html_erb___2462363147241211946_2202524540'
+
+
+  Rendered /Users/davidsin/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/davidsin/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/davidsin/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/davidsin/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (24.8ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2014-08-10 22:38:52 -0400
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuestion Load (0.4ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "votes"  WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Question"]]
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "votes"  WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Question"]]
+  Rendered questions/show.html.erb within layouts/application (8.4ms)
+Completed 500 Internal Server Error in 13ms
+
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  app/views/questions/show.html.erb:24:in `_app_views_questions_show_html_erb___2462363147241211946_2204025020'
+
+
+  Rendered /Users/davidsin/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /Users/davidsin/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/davidsin/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/davidsin/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.7ms)
