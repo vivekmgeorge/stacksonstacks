@@ -29,9 +29,10 @@
         <% end %>
           <ul class="dropdown-menu" role="menu">
             <% unless current_user %>
-              <li><%= link_to 'sign in', @new_user_session_path %></li>
+              <li><%= link_to 'sign in', new_user_session_path %></li>
               <li><%= link_to 'sign up', new_user_registration_path %></li>
             <% else %>
+              <li><%= link_to 'my profile', user_path(current_user) %></li>
               <li><%= link_to 'account settings', edit_user_registration_path %></li>
               <li><%= link_to 'log out', destroy_user_session_path, method: :delete %></li>
             <% end %>

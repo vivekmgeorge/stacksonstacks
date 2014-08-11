@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-
-  get 'users/:id/show', to: 'users#show', as: 'show'
+  get 'users/:id/show', to: 'users#show', as: 'user'
   resources :comments
 
   devise_for :users, :controllers => { registrations: 'registrations' }
