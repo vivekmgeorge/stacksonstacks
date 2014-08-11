@@ -16,25 +16,29 @@ describe QuestionsController do
 		end
 
 		it 'creates a new instance' do
-			expect(assigns(:question)).to eq(Question.last)
-		end
-		it 'assigns a new Question to @question' do
-			get :new
-			expect(assigns(:question)).to be_an_instance_of(Question)
-		end
+      question = Question.new
+		  expect(question).should be_an_instance_of(Question)
+    end
 	end
 
-	describe '#create' do
- 		it "creates a question with valid params" do
-      get :create, { question: { title: "hi david", body: "OMG" }}
-      expect(assigns(:question)).to eq(Question.last)
-    end
-  end
+	# context '#create' do
+ # 		it "creates a question with valid params" do
+ #      get :create, { question: { title: "hi david", body: "OMG" }}
+ #      expect(assigns(:question)).to eq(Question.last)
+ #    end
+ #  end
 
-	context "#destroy" do
-  	it "#deletes post" do
-      question = Question.create!(title: "no more dishes", content: "boo!")
-      expect{ delete :destroy, id: question.id }.to change(Question, :count).by(-1)
+	context '#destroy' do
+    before :each do
+      @delete_question = Question.create!(title: "Post", body: "Content")
+    end
+      it "should delete a Question" do
+      expect do
+          delete :destroy, id: @delete_question
+      end.to change(Question, :count).by(-1)
     end
   end
 end
+  	# it 'deletes question' do
+   #    question = Question.create!(title: "no more dishes", body: "boo!")
+   #    expect{ delete :destroy, id: question.id }.to change(Question, :count).by(-1)

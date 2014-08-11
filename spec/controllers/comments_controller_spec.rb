@@ -21,10 +21,10 @@ describe CommentsController do
     end
   end
 
-  describe '#create' do
-    it "creates a question with valid params" do
-      get :create, { question: { title: "hi david", body: "OMG" }}
-      expect(assigns(:question)).to eq(Question.last)
-    end
-  end
+  # describe '#create' do
+  #   it "creates a question with valid params" do
+  #     get :create, { question: { title: "hi david", body: "OMG" }}
+  #     expect(assigns(:question)).to eq(Question.last)
+  #   end
+  # end
 end
