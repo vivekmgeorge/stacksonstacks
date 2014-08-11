@@ -21,10 +21,29 @@ describe CommentsController do
     end
   end
 
-  # describe '#create' do
-  #   it "creates a question with valid params" do
-  #     get :create, { question: { title: "hi david", body: "OMG" }}
-  #     expect(assigns(:question)).to eq(Question.last)
+  # context '#create' do
+  #   it "creates a comment with valid params" do
+
+  #     get :create, { comment: { body: "OMG" }}
+  #     expect(assigns(:comment)).to eq(Comment.last)
   #   end
   # end
+
+  #context '#edit' do
+  #   it "edits a comment with valid params" do
+  #     get :edit, { comment: { body: "OMG" }}
+  #     expect(assigns(:comment)).to eq(Comment.last)
+  #   end
+  # end
+
+  context '#destroy' do
+    before :each do
+      @delete_comment = Comment.create!(body: "Content")
+    end
+      it "should delete a Comment" do
+      expect do
+          delete :destroy, id: @delete_comment
+      end.to change(Comment, :count).by(-1)
+    end
+  end
 end

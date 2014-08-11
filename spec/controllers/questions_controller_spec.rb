@@ -21,12 +21,24 @@ describe QuestionsController do
     end
 	end
 
-	# context '#create' do
- # 		it "creates a question with valid params" do
- #      get :create, { question: { title: "hi david", body: "OMG" }}
- #      expect(assigns(:question)).to eq(Question.last)
- #    end
- #  end
+	context '#create' do
+ 		it "creates a question with valid params" do
+      question = Question.new#(title: "hi david", body: "OMG")
+      get :create, { question: { title: "hi david", body: "OMG" }}
+      expect(assigns(:question)).to eq(Question.last)
+    end
+  end
+
+  context "#edit" do
+    let(:edit_question) { Question.create!(title: "Old Post", body: "Old Body") }
+    it "updates a post with valid params" do
+      expect do
+        put :update, id: edit_post, post: {title: "New Post", content: "New Content"}
+          edit_post.reload
+        end.to change{edit_post.title}.from("Old Post").to "New Post"
+      end
+    end
+  end
 
 	context '#destroy' do
     before :each do
