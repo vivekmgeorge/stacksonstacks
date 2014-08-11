@@ -28,7 +28,8 @@
 <!-- Comment section of the show page  -->
 		<h5>Comments</h5>
 		<% @comments.each do |comment| %>
-			<strong>Body: </strong><%= comment.body %> <br> <br>
+			<%= comment.body %> 
+			<br> <br>
 		<% end %>
 
 		<%= link_to 'Help improve the question?', new_question_comment_path(@question), method: :get %> 
@@ -69,7 +70,8 @@
 		<br>
 		<% @question.answers.each do |answer| %>
 			<div class="col-md-11 answer"><%= answer.body %><br>
-			By: <!-- user name goes here -->
+			<% user_id = answer.user_id %>
+			By:	<%= User.find(user_id).first_name %>
 			</div> 
 		<% end %>			
 		<br>
