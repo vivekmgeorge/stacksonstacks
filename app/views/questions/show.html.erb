@@ -2,7 +2,7 @@
 <!-- section for question voting -->
 <div class="row">
 	<div class="col-md-1 vote">
-	
+
 		<%= link_to like_question_path(@question), method: :put do  %>
 			<span id="arrow" class="glyphicon glyphicon-chevron-up"></span>
 		<% end %>
@@ -10,7 +10,7 @@
 			<strong><%= @question.score %></strong>
 		<br>
 		<%= link_to dislike_question_path(@question), method: :put do %>
-			<span id="arrow" class="glyphicon glyphicon-chevron-down"></span> 
+			<span id="arrow" class="glyphicon glyphicon-chevron-down"></span>
 		<% end %>
 	</div>
 
@@ -29,12 +29,12 @@
 <!-- Comment section of the show page  -->
 		<h5>Comments</h5>
 		<% @comments.each do |comment| %>
-			<%= comment.body %> 
+			<%= comment.body %>
 			<br> <br>
 		<% end %>
 
-		<%= link_to 'Help improve the question?', new_question_comment_path(@question), method: :get %> 
-	
+		<%= link_to 'Help improve the question?', new_question_comment_path(@question), method: :get %>
+
 	</div>
 </div>
 
@@ -45,12 +45,12 @@
 	<div class="col-md-1 vote">
 	<br>
 		<div class='vote_stats'>
-			<% @question.answers.each do |answer| %>	
+			<% @question.answers.each do |answer| %>
 				<% answer.get_upvotes.count %>
 					<div class="vote"><%= link_to like_question_answer_path(@question, answer), method: :put do  %>
 						<span id="ans_arrow" class="glyphicon glyphicon-chevron-up"></span>
 					<% end %></div>
-					
+
 
 					<div class="count"><%= answer.get_upvotes.count - answer.get_downvotes.count %></div>
 
@@ -74,12 +74,12 @@
 			<div class="col-md-11 answer">
 			<%= answer.body %>
 			<br>
-			<% if current_user.id == answer.user_id %> 
+			<% if current_user.id == answer.user_id %>
 				<%= link_to "Delete Answer", question_answer_path(@question, answer), method: :delete %>
 				<%= link_to "Edit Answer", edit_question_answer_path(@question, answer), method: :get %>
 				<% end %> <br>
 			By:	<%= User.find(answer.user_id).first_name %>
-			</div>			
+			</div>
 		<% end %>
 
 		<br>
