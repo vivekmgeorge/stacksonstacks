@@ -19,6 +19,10 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'devise'
 gem 'acts_as_votable', '~> 0.10.0'
 
+group :production do
+	gem 'rails_12factor'
+end
+
 group :development, :test do
 	gem "rspec-rails", "~> 2.14.0"
 	gem "factory_girl_rails", "~> 4.2.1"
