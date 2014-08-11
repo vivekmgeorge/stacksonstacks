@@ -71,17 +71,17 @@
 	</div>
 		<br>
 		<% @question.answers.each do |answer| %>
-			<div class="col-md-11 answer"><%= answer.body %><br>
-			<% user_id = answer.user_id %>
+			<div class="col-md-11 answer">
+			<%= answer.body %>
+			<br>
 			<% if current_user.id == answer.user_id %> 
-			<%= link_to "Delete Answer", question_answer_path(@question, answer), method: :delete %>
-			<%= link_to "Edit Answer", edit_question_answer_path(@question, answer), method: :get %><br>
-			By: <!-- user name goes here -->
-			<% end %><br>
-			By:	<%= User.find(user_id).first_name %>
+				<%= link_to "Delete Answer", question_answer_path(@question, answer), method: :delete %>
+				<%= link_to "Edit Answer", edit_question_answer_path(@question, answer), method: :get %>
+				<% end %> <br>
+			By:	<%= User.find(answer.user_id).first_name %>
+			</div>			
 		<% end %>
 
-			</div> 
 		<br>
 
 	</div>
